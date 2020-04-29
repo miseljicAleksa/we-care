@@ -1,27 +1,21 @@
 .NavigationBar {
     border: 2px red solid;
     overflow: hidden;
-    background-color: #18183d;
+    background-color: #172434;
 
     display: grid;
     gap:20px;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-areas: 'weCare title title title . . date day time';
+    grid-template-areas: 'weCare title title . . . date day time';
 }
   .NavigationBar a {
     float: left;
-    color: #c7c7c9;
+    color: #838D94;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 0px;
     text-decoration: none;
     font-size: 17px;
   }
-
-  .NavigationBar a.active {
-    background-color: #18183d;
-    color: #c7c7c9;
-
-}
 
 
 .NavigationBar a.date {

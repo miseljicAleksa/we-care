@@ -5,8 +5,8 @@ import './Call.css'
 export const Call = (props) => {
     return (
         <div {...props}>
-            <p>Calls Received</p>
-            <p>987</p>
+            <p class="title">{props.title}</p>
+            <p id="number">{props.number}</p>
         </div>
     )
 }

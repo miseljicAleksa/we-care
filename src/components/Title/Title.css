@@ -1,3 +1,17 @@
 .Title {
     border: 2px red solid;
 }
+
+#header{
+    font-size: 1.5rem;
+    color: #838D94;
+    font-weight: 100;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+#subtitle{
+    color: #838D94;
+    font-weight: 100;
+    margin-top: 2px;
+}

@@ -1,3 +1,19 @@
-.Call {
-    border: 2px red solid;
+.Call{
+    background-color: #172434;
+    display: flex;  
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
+}
+
+.title{
+    color: #858EA0;
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+
+#number{
+    margin-top: 0px;
+    margin-bottom: 2px;
+    font-size: 3rem;
 }
