@@ -1,10 +1,10 @@
 import React from 'react'
 
-import styles from './ServiceLevel.css'
+import './ServiceLevel.css'
 
-export const ServiceLevel = () => {
+export const ServiceLevel = (props) => {
     return (
-        <div className={styles.ServiceLevel}>
+        <div {...props}>
             Service Level
         </div>
     )

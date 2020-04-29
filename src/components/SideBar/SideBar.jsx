@@ -2,9 +2,9 @@ import React from 'react'
 
 import styles from './SideBar.css'
 
-export const SideBar = () => {
+export const SideBar = (props) => {
     return (
-        <div className={styles.SideBar}>
+        <div {...props}>
             SideBar
         </div>
     )

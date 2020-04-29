@@ -1,10 +1,10 @@
 import React from 'react'
 
-import styles from './CallGraph.css'
+import './CallGraph.css'
 
-export const CallGraph = () => {
+export const CallGraph = (props) => {
     return (
-        <div className={styles.CallGraph}>
+        <div {...props}>
             CallGraph
         </div>
     )

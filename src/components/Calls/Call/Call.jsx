@@ -1,12 +1,12 @@
 import React from 'react'
 
-import styles from './Call.css'
+import './Call.css'
 
 export const Call = (props) => {
     return (
-        <div className={styles.Call}>
+        <div {...props}>
             <p>Calls Received</p>
-            <p className={styles.callNumber}>987</p>
+            <p>987</p>
         </div>
     )
 }

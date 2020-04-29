@@ -1,10 +1,10 @@
 import React from 'react'
 
-import styles from './Talk.css'
+import './Talk.css'
 
-export const Talk = () => {
+export const Talk = (props) => {
     return (
-        <div className={styles.Talk}>
+        <div {...props}>
             Talk
         </div>
     )

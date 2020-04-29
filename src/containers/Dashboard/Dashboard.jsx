@@ -8,12 +8,16 @@ class Dashboard extends Component {
         return (
             <div className="Dashboard">
                 <NavigationBar className="NavigationBar"/>
-                <Title className="title"/>
-                <Calls/>
-                <CallGraph/>
-                <ServiceLevel/>
-                <TalkInformations/>
-                <SideBar/>
+                <div className="leftSection">
+                    <Title className="Title"/>
+                    <Calls className="Calls"/>
+                    <CallGraph className="CallGraph"/>
+                </div>
+                <div className="midSection">
+                    <ServiceLevel className="ServiceLevel"/>
+                    <TalkInformations className="TalkInformations"/>
+                </div>
+                <SideBar className="SideBar"/>
             </div>
         );
     }

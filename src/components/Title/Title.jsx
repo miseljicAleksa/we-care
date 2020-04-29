@@ -1,11 +1,11 @@
 import React from 'react'
 
-import styles from './Title.css'
+import './Title.css'
 
-export const Title = () => {
+export const Title = (props) => {
     return (
-        <div className={styles.Title}>
-            <p className={styles.header}>Welcome And Good Morning.</p>
+        <div {...props}>
+            <p>Welcome And Good Morning.</p>
             <p>Have a great day ahead!</p>
         </div>
     )

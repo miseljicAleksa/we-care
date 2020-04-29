@@ -1,11 +1,14 @@
 import React from 'react'
 
-import styles from './Calls.css'
+import './Calls.css'
 import {Call} from './Call/Call'
 
-export const Calls = () => {
+export const Calls = (props) => {
     return (
-        <div className={styles.Calls}>
+        <div {...props}>
+            <Call/>
+            <Call/>
+            <Call/>
             <Call/>
         </div>
     )
