@@ -64,4 +64,6 @@
 
 .midSection{
     grid-area: midSection;
+    display: grid;
+    gap: 10px;
 }

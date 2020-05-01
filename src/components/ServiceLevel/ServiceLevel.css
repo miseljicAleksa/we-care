@@ -1,3 +1,69 @@
 .ServiceLevel {
-    border: 2px red solid;
+    width: 100%;
+    background-color: #172434;
+    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title{
+    color: #838D94;
+    align-self: flex-start;
+}
+
+.subtitleContainer{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: stretch;
+}
+
+
+
+.red{
+    height:5px;
+    width: 5px;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 0 5px red;
+    display: inline-block;
+}
+
+.yellow{
+    height: 5px;
+    width: 5px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 0 5px yellow;
+}
+
+.green{
+    height: 5px;
+    width: 5px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 0 5px green;
+}
+
+.string{
+    color: #838D94;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 0 25px 0 7px;
+}
+.stringTwo{
+    color: #838D94;
+    font-size: 12px;
+    font-weight: 100;
+    padding-left: 7px;
 }

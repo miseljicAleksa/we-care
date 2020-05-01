@@ -1,3 +1,96 @@
 .TalkInformations {
-    border: 2px red solid;
+    /* overflow: hidden; */
+    display: grid;
+    grid-gap: 7px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "averagetalk averagetalk"
+        "averagewait longestwait";
 }
+  
+.avaragetalk{
+    grid-area: averagetalk;
+    justify-self: stretch;
+    align-self: stretch;
+    text-align:  center;
+    background-color: #172434;
+    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
+
+}
+
+.avaragewait{
+    grid-area: averagewait;
+    text-align:  center;
+    justify-self: stretch;
+    align-self: stretch;
+    background-color: #172434;
+    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
+
+}
+
+.longestwait{
+    grid-area: longestwait;
+    justify-self: stretch;
+    align-self: stretch;
+    text-align:  center; 
+    background-color: #172434;
+    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);  
+}
+
+.avaragetalk h1 {
+    color: #00a2ff;
+}
+
+.avaragewait h1 {
+    color: #ff7e14;
+}
+
+.longestwait h1 {
+    color: #ffa154;
+    
+}
+
+.avaragewait h4 {
+    color: #C1C4D4;
+    font-weight: 100;
+
+}
+
+.longestwait h4 {
+    color: #C1C4D4;
+    font-weight: 100;
+}
+
+.avaragetalk h4 {
+    color: #C1C4D4;
+    font-weight: 100;
+
+}
+
+
+
+.icons{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: silver;
+    font-size: 2em;
+    margin-top: 0em;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 0em;
+    margin-top: 2px;
+    padding-top: 2px;
+}
+
