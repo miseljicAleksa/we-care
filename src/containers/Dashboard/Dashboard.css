@@ -67,3 +67,39 @@
     display: grid;
     gap: 10px;
 }
+
+@media only screen and (max-width: 768px){
+  .Dashboard {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .SideBar{
+    margin-top: 10px;
+    order: 1;
+  }
+
+  .midSection{
+    margin-top: 10px;
+    order: 2;
+  }
+  
+  .leftSection{
+    margin-top: 10px;
+    order: 3;
+  }
+
+}
+
+/* @media only screen and (max-width: 500px){
+  .Dashboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: "weCare title title title" "date . day time";
+      gap: 5px;
+      justify-items: center;
+  }
+  .date{
+      margin-left: 10px;
+  }
+} */

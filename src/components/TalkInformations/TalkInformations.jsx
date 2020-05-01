@@ -6,18 +6,18 @@ import './TalkInformations.css'
 export const TalkInformations = (props) => {
     return (
         <div {...props}>
-            <section class="avaragetalk"> 
-                <FontAwesomeIcon icon={faStopwatch} size="3x" color="black" className="icons"/>
+            <section className="avaragetalk"> 
+                <FontAwesomeIcon icon={faStopwatch} size="3x" color="#00a2ff" className="icons"/>
                 <h4>Average Talk Time</h4>
                 <h1>4:32</h1>
             </section>
-            <section class="avaragewait">
-                <FontAwesomeIcon icon={faStopwatch} size="3x" color="black" className="icons"/>
+            <section className="avaragewait">
+                <FontAwesomeIcon icon={faStopwatch} size="3x" color="#ff7e14" className="icons"/>
                 <h4>Average Wait Time</h4>
                 <h1>3:14</h1>
             </section>
-            <section class="longestwait">
-                <FontAwesomeIcon icon={faStopwatch} size="3x" color="black" className="icons"/>
+            <section className="longestwait">
+                <FontAwesomeIcon icon={faStopwatch} size="3x" color="#ffa154" className="icons"/>
                 <h4>Longest Wait Time</h4>
                 <h1>5:44</h1>
             </section>

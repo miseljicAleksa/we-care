@@ -6,7 +6,7 @@
     display: grid;
     gap:20px;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-areas: 'weCare title title . . . date day time';
+    grid-template-areas: 'weCare title title title . . date day time';
     box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
 }
   .NavigationBar a {
@@ -44,3 +44,22 @@
     grid-area: time;
 }
 
+@media only screen and (max-width: 768px){
+    .NavigationBar {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .NavigationBar {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "weCare title title title" "date . day time";
+        gap: 5px;
+        justify-items: center;
+    }
+    .date{
+        margin-left: 10px;
+    }
+}

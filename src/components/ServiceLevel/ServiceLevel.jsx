@@ -18,7 +18,8 @@ export const ServiceLevel = (props) => {
                 value={50}
                 currentValueText=""
                 textColor={textColor}
-                needleColor={"black"}
+                needleColor={"#838D94"}
+                className="speedometer"
                 />
             <div className="subtitleContainer">
                 <div className="red">
