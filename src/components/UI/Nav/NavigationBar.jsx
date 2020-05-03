@@ -9,6 +9,24 @@ export const NavigationBar = (props) => {
     let year = newDate.getFullYear();
     let hours = newDate.getHours();
     let minutes = newDate.getMinutes();
+    let humanMinutes;
+    let humanDate;
+    if(date<10){
+        humanDate="0"+date;
+    }else{
+        humanDate=date
+    }
+    let humanMonth;
+    if(date<10){
+        humanMonth="0"+month;
+    }else{
+        humanMonth=month
+    }
+    if(minutes<10){
+        humanMinutes="0"+minutes
+    }else{
+        humanMinutes=minutes
+    }
     let day = newDate.getDay();
     let humanDay;
     switch (day) {
@@ -35,11 +53,11 @@ export const NavigationBar = (props) => {
     }
     return (
         <div {...props}>
-            <a  className="active" href="#title">WeCare</a>
-            <a  className="title" href="#contact">Contact Center Dashboard</a>
-            <a  className="date" href="#date">{date}.{month}.{year}.</a>
-            <a  className="day" href="#day">{humanDay}</a>
-            <a  className="time" href="#time">{hours}:{minutes}</a>
+            <p className="active">WeCare</p>
+            <p className="title">Contact Center Dashboard</p>
+            <p className="date">{humanDate}.{humanMonth}.{year}.</p>
+            <p className="day">{humanDay}</p>
+            <p className="time">{hours}:{humanMinutes}</p>
         </div>
     )
 }

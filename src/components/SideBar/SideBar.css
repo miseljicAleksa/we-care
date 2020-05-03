@@ -41,6 +41,7 @@
     height: 3rem;
     align-self: center;
     margin-top: 30%;
+    margin-bottom: 2em;
 }
 .sideBarButton:hover {
 	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
