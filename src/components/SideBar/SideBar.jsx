@@ -4,20 +4,14 @@ import './SideBar.css'
 import {SideBarParagraph} from './SideBarParagraph/SideBarParagraph'
 
 export const SideBar = (props) => {
-    const agentStatus = ["Smiljana 05:00 Inbound", "Biljana 02:00 Outbound",
-                 "Bojan 12:00 Break","Nebojsa 04:00 Offline", "XXXX 05:00 Online/Ready"]
-
-    const missedCalls = ["+38164...   10:32", "+38111254...   10:55", "+38163...   11:30", "+38164...   10:32", "+38111254...   10:55", "+38163...   11:30"]   
-    
-    
     return (
         <div {...props}>
             <div className="agentStatus">
                 <p className="title">
                     AGENT STATUS
                 </p>
-                {
-                    agentStatus.map((txt, index) => {
+                {   
+                    props.dataCount ? <button className="sideBarButton" onClick={props.showModalForAgentStatus}>SEE AGENT STATUS</button> : props.agentStatus.map((txt, index) => {
                         return(<SideBarParagraph text={txt} key={index}/>)
                     })
                 }
@@ -28,12 +22,13 @@ export const SideBar = (props) => {
                     MISSED CALLS
                 </p>
                 {
-                    missedCalls.map((call, index) => {
+                    props.dataCount ? <button className="sideBarButton" onClick={props.showModalForMissedCalls}>SEE MISSED CALLS</button> : props.missedCalls.map((call, index) => {
                         return(<SideBarParagraph text={call} key={index} />)
                     })
                 }
                 
             </div>
+            <div></div>
         </div>
     )
 }
