@@ -4,16 +4,21 @@ import './SideBar.css'
 import {SideBarParagraph} from './SideBarParagraph/SideBarParagraph'
 
 export const SideBar = (props) => {
+    const {agentStatus, missedCalls,dataCount,showModalForAgentStatus,showModalForMissedCalls, ...rest} = props
     return (
-        <div {...props}>
+        <div {...rest}>
             <div className="agentStatus">
                 <p className="title">
                     AGENT STATUS
                 </p>
                 {   
-                    props.dataCount ? <button className="sideBarButton" onClick={props.showModalForAgentStatus}>SEE AGENT STATUS</button> : props.agentStatus.map((txt, index) => {
-                        return(<SideBarParagraph text={txt} key={index}/>)
-                    })
+                    dataCount ? <button 
+                                    className="sideBarButton" 
+                                    onClick={showModalForAgentStatus}>
+                                       SEE AGENT STATUS
+                                    </button> : agentStatus.map((txt, index) => {
+                                        return(<SideBarParagraph text={txt} key={index}/>)
+                                         })
                 }
                 
             </div>
@@ -22,9 +27,13 @@ export const SideBar = (props) => {
                     MISSED CALLS
                 </p>
                 {
-                    props.dataCount ? <button className="sideBarButton" onClick={props.showModalForMissedCalls}>SEE MISSED CALLS</button> : props.missedCalls.map((call, index) => {
-                        return(<SideBarParagraph text={call} key={index} />)
-                    })
+                    dataCount ? <button 
+                                    className="sideBarButton" 
+                                    onClick={showModalForMissedCalls}>
+                                        SEE MISSED CALLS
+                                    </button> : missedCalls.map((call, index) => {
+                                        return(<SideBarParagraph text={call} key={index} />)
+                                        })
                 }
                 
             </div>
