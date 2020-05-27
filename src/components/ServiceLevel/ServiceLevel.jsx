@@ -15,7 +15,7 @@ export const ServiceLevel = (props) => {
                 maxSegmentLabels={0}
                 segments={9000}
                 maxValue={100}
-                value={50}
+                value={(props.answered / props.received) * 100}
                 currentValueText=""
                 textColor={textColor}
                 needleColor={"#838D94"}

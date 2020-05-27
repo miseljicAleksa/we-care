@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 import './Dashboard.css'
 import {
@@ -11,8 +12,113 @@ class Dashboard extends Component {
     state={
         isASModalVisible: false,
         isMCModalVisible: false,
-        isSideBarVisible: true
+        isSideBarVisible: true,
+        missedCalls: [],
+        agents: [], 
+        graphic: [],
+        answered: null,
+        received: null,
+        missed: null,
+        queue: null,
+        att: null,
+        att_inbound: null,
+        att_outbound: null,
+        awt: null,
+        lwt: null,
     }
+
+    componentDidMount() {
+        // Load async data.
+        // Update state with new data.
+        // Re-render our component.
+        // const baseUrl = 'http://80.240.26.159/'
+        axios.get(`http://80.240.26.159/cdr/missed-calls`)
+            .then(response => {
+                this.setState({missedCalls: response.data})
+                // console.log(response.data)
+                // console.log(this.state.missedCalls)
+            })
+            .catch(err => console.log(err))
+        
+        axios.get(`http://80.240.26.159/cdr/agents`)
+            .then(response => {
+                this.setState({agents: response.data})
+                // console.log(response.data)
+                // console.log(this.state.agents)
+            })
+            .catch(err => console.log(err))
+
+        axios.get(`http://80.240.26.159/cdr/graphic`)
+            .then(response => {
+                this.setState({graphic: response.data})
+                console.log(response.data, "OVO JE RESPONSE")
+                console.log(this.state.graphic, "OVO JE STATE")
+            })
+            .catch(err => console.log(err))
+
+        axios.get(`http://80.240.26.159/cdr/answered`)
+            .then(response => {
+                this.setState({answered: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))
+        
+        axios.get(`http://80.240.26.159/cdr/missed`)
+            .then(response => {
+                this.setState({missed: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))
+
+        axios.get(`http://80.240.26.159/cdr/received`)
+            .then(response => {
+                this.setState({received: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))
+
+        axios.get(`http://80.240.26.159/cdr/queue`)
+            .then(response => {
+                this.setState({queue: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))
+
+        axios.get(`http://80.240.26.159/cdr/awt`)
+            .then(response => {
+                this.setState({awt: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))
+
+        axios.get(`http://80.240.26.159/cdr/att`)
+            .then(response => {
+                this.setState({att: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))
+
+        axios.get(`http://80.240.26.159/cdr/att-inbound`)
+            .then(response => {
+                this.setState({att_inbound: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))
+
+        axios.get(`http://80.240.26.159/cdr/att-outbound`)
+            .then(response => {
+                this.setState({att_outbound: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))
+
+        axios.get(`http://80.240.26.159/cdr/lwt`)
+            .then(response => {
+                this.setState({lwt: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))           
+      }
 
     isASModalVisibleHandler = () => {
         this.setState({isASModalVisible: true})
@@ -33,33 +139,18 @@ class Dashboard extends Component {
     }
 
     render() {
-        // const missedCalls = ["+38164...   10:32", "+38111254...   10:55"]
-        // const agentStatus = ["Smiljana 05:00 Inbound", "Biljana 02:00 Outbound"]
-        const agentStatus = ["Smiljana 05:00 Inbound", "Biljana 02:00 Outbound",
-                 "Bojan 12:00 Break","Nebojsa 04:00 Offline", "XXXX 05:00 Online/Ready", "Smiljana 05:00 Inbound", "Biljana 02:00 Outbound",
-                 "Bojan 12:00 Break","Nebojsa 04:00 Offline", "XXXX 05:00 Online/Ready","Smiljana 05:00 Inbound", "Biljana 02:00 Outbound",
-                 "Bojan 12:00 Break","Nebojsa 04:00 Offline", "XXXX 05:00 Online/Ready", "Smiljana 05:00 Inbound", "Biljana 02:00 Outbound",
-                 "Bojan 12:00 Break","Nebojsa 04:00 Offline", "XXXX 05:00 Online/Ready"]
-        const missedCalls = ["+38164...   10:32", "+38111254...   10:55", "+38163...   11:30", "+38164...   10:32", "+38111254...   10:55", "+38163...   11:30","+38164...   10:32", "+38111254...   10:55", "+38163...   11:30", "+38164...   10:32", "+38111254...   10:55", "+38163...   11:30","+38164...   10:32", "+38111254...   10:55", "+38163...   11:30", "+38164...   10:32", "+38111254...   10:55", "+38163...   11:30"]  
-        const dataCount = missedCalls.length + agentStatus.length
-        let test=false
-        if(dataCount>10){
-            test = true
-        }else{
-            test = false
-        }
         return (
             <div className="Dashboard">
                 <Modal show={this.state.isASModalVisible || this.state.isMCModalVisible} modalClosed={this.closeModalHandler}>
                     
                     {this.state.isASModalVisible ? <AgentStatusSideBar 
                         className="SideBar" 
-                        agentStatus={agentStatus} 
+                        agentStatus={this.state.agents} 
                         style={{overflowY: "scroll", height:"500px"}}
                         /> : null}
                     {this.state.isMCModalVisible ? (<MissedCallsSideBar 
                         className="SideBar" 
-                        missedCalls={missedCalls} 
+                        missedCalls={this.state.missedCalls} 
                         style={{overflowY: "scroll", height:"500px"}}
                         />) : null}
 
@@ -67,24 +158,26 @@ class Dashboard extends Component {
                 <NavigationBar className="NavigationBar"/>
                 <div className="leftSection">
                     <Title className="Title"/>
-                    <Calls className="Calls"/>
-                    <CallGraph className="CallGraph"/>
+                    <Calls className="Calls" missed={this.state.missed} queue={this.state.queue} answered={this.state.answered} received={this.state.received}/>
+                    <CallGraph className="CallGraph" graphData={this.state.graphic}/>
                 </div>
                 <div className="midSection">
-                    <ServiceLevel className="ServiceLevel"/>
-                    <TalkInformations className="TalkInformations"/>
+                    <ServiceLevel className="ServiceLevel" answered={this.state.answered} received={this.state.received}/>
+                    <TalkInformations className="TalkInformations" awt={this.state.awt} lwt={this.state.lwt} att={this.state.att} att-inbound={this.state.att_inbound} att-outbound={this.state.att_outbound}/>
                 </div>
                 <SideBar 
                     className="SideBar" 
-                    agentStatus={agentStatus} 
-                    missedCalls={missedCalls} 
-                    dataCount={test} 
+                    agentStatus={this.state.agents} 
+                    missedCalls={this.state.missedCalls} 
+                    dataCount={10} 
                     showModalForAgentStatus={this.isASModalVisibleHandler} 
                     showModalForMissedCalls={this.isMCModalVisibleHandler}
                 />
             </div>
         );
     }
+
+
 }
 
 export default Dashboard;

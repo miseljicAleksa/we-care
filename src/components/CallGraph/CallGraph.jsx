@@ -15,7 +15,7 @@ export const CallGraph = (props) => {
             borderWidth: 1,
             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
             hoverBorderColor: 'rgba(255,99,132,1)',
-            data: [65, 59, 80, 81, 56, 55, 40]
+            data: props.graphData ? Object.values(props.graphData).map(value=>value['received']) : null
           },
           {
             label: 'Answered',
@@ -24,7 +24,7 @@ export const CallGraph = (props) => {
             borderWidth: 1,
             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
             hoverBorderColor: 'rgba(255,99,132,1)',
-            data: [45, 79, 10, 41, 16, 85, 20]
+            data: props.graphData ? Object.values(props.graphData).map(value=>value['answered']) : null
           },
           {
             label: 'Abandoned',
@@ -33,10 +33,11 @@ export const CallGraph = (props) => {
             borderWidth: 1,
             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
             hoverBorderColor: 'rgba(255,99,132,1)',
-            data: [100, 24, 66, 51, 10, 95, 200]
+            data: props.graphData ? Object.values(props.graphData).map(value=>value['missed']) : null
           }
         ]
     }
+
     const options={
         responsive: true,
         legend: {
@@ -45,8 +46,10 @@ export const CallGraph = (props) => {
         type:'bar',
         
     }
+    console.log(props.graphData)
 
     return (
+
         <div {...props}>
             <p id="title">CALL RECEIVED/ANSWERED/ABANDONED</p>
             <div className="titleContainer">

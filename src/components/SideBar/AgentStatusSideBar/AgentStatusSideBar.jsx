@@ -13,7 +13,7 @@ export const AgentStatusSideBar = (props) => {
                 </p>
                 {   
                     props.dataCount ? <button className="sideBarButton" onClick={props.showModalForAgentStatus}>SEE AGENT STATUS</button> : props.agentStatus.map((txt, index) => {
-                        return(<SideBarParagraph text={txt} key={index}/>)
+                        return(props.agentStatus.map(({fullname, status, status_time})=> <SideBarParagraph text={fullname + " " + status + " " + status_time} key={index} />))
                     })
                 }
                 
