@@ -12,9 +12,15 @@ export const MissedCallsSideBar = (props) => {
                     MISSED CALLS
                 </p>
                 {
-                    props.dataCount ? <button className="sideBarButton" onClick={props.showModalForMissedCalls}>SEE MISSED CALLS</button> : props.missedCalls.map((call, index) => {
-                        return(props.missedCalls.map(({start, src})=> <SideBarParagraph text={"+"+src + "    " + moment(start).format('HH:mm')} key={index} />))
-                    })
+                    props.dataCount ?
+                        <button
+                            className="sideBarButton"
+                            onClick={props.showModalForMissedCalls}>
+                                SEE MISSED CALLS
+                        </button> : 
+                        props.missedCalls.map(({start, src}, index) => {
+                            return( <SideBarParagraph text={"+" + src + "      " + moment(start).format('HH:mm MM-DD')} key={index} />)
+                        })
                 }
                 
             </div>
