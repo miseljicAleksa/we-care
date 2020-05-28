@@ -27,7 +27,7 @@ export const CallGraph = (props) => {
             data: props.graphData ? Object.values(props.graphData).map(value=>value['answered']) : null
           },
           {
-            label: 'Abandoned',
+            label: 'Missed',
             backgroundColor: '#CB5E4A',
             borderColor: '#CB5E4A',
             borderWidth: 1,
@@ -51,14 +51,14 @@ export const CallGraph = (props) => {
     return (
 
         <div {...props}>
-            <p id="title">CALL RECEIVED/ANSWERED/ABANDONED</p>
+            <p id="title">CALL RECEIVED/ANSWERED/MISSED</p>
             <div className="titleContainer">
                 <div id="blue"></div>
                 <p className="heading">Received</p>
                 <div id="green"></div>
                 <p className="heading">Answered</p>
                 <div id="orange"></div>
-                <p className="heading">Abandoned</p>
+                <p className="heading">Missed</p>
             </div>
             
             <Bar data={data} options={options}/>
