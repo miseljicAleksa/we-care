@@ -88,6 +88,7 @@ class Dashboard extends Component {
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
                 this.setState({awt: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
@@ -97,6 +98,7 @@ class Dashboard extends Component {
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
                 this.setState({att: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
@@ -106,6 +108,7 @@ class Dashboard extends Component {
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
                 this.setState({att_inbound: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
@@ -115,6 +118,7 @@ class Dashboard extends Component {
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
                 this.setState({att_outbound: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
@@ -124,6 +128,7 @@ class Dashboard extends Component {
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
                 this.setState({lwt: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
