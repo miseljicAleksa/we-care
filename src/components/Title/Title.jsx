@@ -6,7 +6,6 @@ export const Title = (props) => {
     let date = new Date();
     let hours = date.getHours();
     let dayPeriod;
-    console.log(hours)
     switch (true) {
         case hours < 11:
             dayPeriod = "Morning"

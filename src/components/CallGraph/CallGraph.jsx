@@ -46,7 +46,6 @@ export const CallGraph = (props) => {
         type:'bar',
         
     }
-    console.log(props.graphData)
 
     return (
 

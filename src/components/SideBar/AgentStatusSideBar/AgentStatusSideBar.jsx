@@ -1,5 +1,5 @@
 import React from 'react'
-
+import slika from './download.png'
 import '../SideBar.css'
 import {SideBarParagraph} from '../SideBarParagraph/SideBarParagraph'
 
@@ -13,7 +13,7 @@ export const AgentStatusSideBar = (props) => {
                 </p>
                 {   
                     props.dataCount ? <button className="sideBarButton" onClick={props.showModalForAgentStatus}>SEE AGENT STATUS</button> : props.agentStatus.map((txt, index) => {
-                        return(props.agentStatus.map(({fullname, status, status_time})=> <SideBarParagraph text={fullname + " " + status + " " + status_time} key={index} />))
+                        return(props.agentStatus.map(({fullname, status, status_time})=> <SideBarParagraph img={slika} text={fullname + " " + status + " " + status_time} key={index} />))
                     })
                 }
                 

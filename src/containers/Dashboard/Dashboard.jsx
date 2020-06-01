@@ -35,7 +35,7 @@ class Dashboard extends Component {
         axios.get(`http://80.240.26.159/cdr/missed-calls`)
             .then(response => {
                 this.setState({missedCalls: response.data})
-                // console.log(response.data)
+                console.log(response.data, "missed calls")
                 // console.log(this.state.missedCalls)
             })
             .catch(err => console.log(err))
@@ -51,8 +51,6 @@ class Dashboard extends Component {
         axios.get(`http://80.240.26.159/cdr/graphic`)
             .then(response => {
                 this.setState({graphic: response.data})
-                console.log(response.data, "OVO JE RESPONSE")
-                console.log(this.state.graphic, "OVO JE STATE")
             })
             .catch(err => console.log(err))
 
@@ -122,12 +120,10 @@ class Dashboard extends Component {
 
     isASModalVisibleHandler = () => {
         this.setState({isASModalVisible: true})
-        console.log("AS MODAL")
     }
 
     isMCModalVisibleHandler = () => {
         this.setState({isMCModalVisible: true})
-        console.log("MC MODAL")
     }
 
     closeModalHandler = () => {
@@ -159,15 +155,17 @@ class Dashboard extends Component {
                 <div className="leftSection">
                     <Title className="Title"/>
                     <Calls className="Calls" missed={this.state.missed} queue={this.state.queue} answered={this.state.answered} received={this.state.received}/>
-                    <CallGraph className="CallGraph" graphData={this.state.graphic}/>
+                    <AgentStatusSideBar agentStatus={this.state.agents}/>
                 </div>
                 <div className="midSection">
                     <ServiceLevel className="ServiceLevel" answered={this.state.answered} received={this.state.received}/>
                     <TalkInformations className="TalkInformations" awt={this.state.awt} lwt={this.state.lwt} att={this.state.att} att-inbound={this.state.att_inbound} att-outbound={this.state.att_outbound}/>
+                    
+            
+                />
                 </div>
                 <SideBar 
                     className="SideBar" 
-                    agentStatus={this.state.agents} 
                     missedCalls={this.state.missedCalls} 
                     dataCount={10} 
                     showModalForAgentStatus={this.isASModalVisibleHandler} 
