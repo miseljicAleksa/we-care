@@ -84,35 +84,50 @@ class Dashboard extends Component {
 
         axios.get(`http://80.240.26.159/cdr/awt`)
             .then(response => {
-                this.setState({awt: response.data})
+                var minutes = Math.floor(response.data / 60)
+                var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
+                this.setState({awt: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
         axios.get(`http://80.240.26.159/cdr/att`)
             .then(response => {
-                this.setState({att: response.data})
+                var minutes = Math.floor(response.data / 60)
+                var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
+                this.setState({att: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
         axios.get(`http://80.240.26.159/cdr/att-inbound`)
             .then(response => {
-                this.setState({att_inbound: response.data})
+                var minutes = Math.floor(response.data / 60)
+                var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
+                this.setState({att_inbound: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
         axios.get(`http://80.240.26.159/cdr/att-outbound`)
             .then(response => {
-                this.setState({att_outbound: response.data})
+                var minutes = Math.floor(response.data / 60)
+                var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
+                this.setState({att_outbound: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
         axios.get(`http://80.240.26.159/cdr/lwt`)
             .then(response => {
-                this.setState({lwt: response.data})
+                var minutes = Math.floor(response.data / 60)
+                var seconds = response.data - minutes * 60
+                seconds = seconds.toString().padStart(2, "0")
+                this.setState({lwt: `${minutes}:${seconds}`})
                 // console.log(response.data)
             })
             .catch(err => console.log(err))           
