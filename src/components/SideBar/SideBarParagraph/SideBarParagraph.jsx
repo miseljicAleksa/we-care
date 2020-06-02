@@ -1,6 +1,6 @@
 import React from 'react'
-import crvena from '../../../zelena.png'
-import zelena from '../../../crvena.png'
+import zelena from '../../../zelena.png'
+import crvena from '../../../crvena.png'
 import siva from '../../../siva.png'
 import zuta from '../../../zuta.jpeg'
 
