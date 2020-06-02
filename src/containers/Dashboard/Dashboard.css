@@ -56,7 +56,14 @@
 
 .SideBar {
     grid-area: sideBar;
+    height: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+    overflow: hidden;
 }
+
+
+
 
 .leftSection{
     grid-area: leftSection;

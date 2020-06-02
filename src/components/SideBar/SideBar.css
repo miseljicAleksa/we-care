@@ -1,6 +1,5 @@
 .SideBar {
-    background-color: #172434;
-    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,16 +11,25 @@
 }
 
 .agentStatus{
+    margin-top: 8px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
     height: 300px;
+    background-color: #172434;
 }
 
 .missedCalls{
+    background-color: #172434;
+    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
     display: flex;
+    height: 490px;
+    /* margin-bottom: 15px; */
+    /* padding: 15px; */
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: scroll;
 }
 
 .sideBarButton {

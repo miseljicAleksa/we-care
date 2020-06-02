@@ -7,9 +7,12 @@ import {
     SideBar, TalkInformations, Title,
     NavigationBar, Spinner, Modal,
     Backdrop, MissedCallsSideBar, AgentStatusSideBar } from '../../components'
+import {Call} from '../../components/Calls/Call/Call'
+
 
 class Dashboard extends Component {
     state={
+        numbercalls: null,
         isASModalVisible: false,
         isMCModalVisible: false,
         isSideBarVisible: true,
@@ -25,7 +28,10 @@ class Dashboard extends Component {
         att_outbound: null,
         awt: null,
         lwt: null,
+        outbound: null,
     }
+
+    
 
     componentDidMount() {
         // Load async data.
@@ -36,7 +42,11 @@ class Dashboard extends Component {
             .then(response => {
                 this.setState({missedCalls: response.data})
                 console.log(response.data, "missed calls")
-                // console.log(this.state.missedCalls)
+            })
+            .catch(err => console.log(err))
+        axios.get(`http://80.240.26.159/cdr/number-of-missed-calls`)
+            .then(response => {
+                this.setState({numbercalls: response.data})
             })
             .catch(err => console.log(err))
         
@@ -111,6 +121,13 @@ class Dashboard extends Component {
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
+        
+        axios.get(`http://80.240.26.159/cdr/outbound`)
+            .then(response => {
+                this.setState({outbound: response.data})
+                // console.log(response.data)
+            })
+            .catch(err => console.log(err))
 
         axios.get(`http://80.240.26.159/cdr/att-outbound`)
             .then(response => {
@@ -150,6 +167,8 @@ class Dashboard extends Component {
     }
 
     render() {
+        var midService = (this.props.answered / this.props.received) * 100
+        var strelica = (this.state.missedCalls.length / this.state.numbercalls) * 100
         return (
             <div className="Dashboard">
                 <Modal show={this.state.isASModalVisible || this.state.isMCModalVisible} modalClosed={this.closeModalHandler}>
@@ -173,19 +192,19 @@ class Dashboard extends Component {
                     <AgentStatusSideBar agentStatus={this.state.agents}/>
                 </div>
                 <div className="midSection">
-                    <ServiceLevel className="ServiceLevel" answered={this.state.answered} received={this.state.received}/>
+                    <ServiceLevel className="ServiceLevel" answered={this.state.answered} received={this.state.received} value={midService} color={".black"}/>
                     <TalkInformations className="TalkInformations" awt={this.state.awt} lwt={this.state.lwt} att={this.state.att} att-inbound={this.state.att_inbound} att-outbound={this.state.att_outbound}/>
-                    
-            
-                />
                 </div>
-                <SideBar 
-                    className="SideBar" 
-                    missedCalls={this.state.missedCalls} 
-                    dataCount={10} 
-                    showModalForAgentStatus={this.isASModalVisibleHandler} 
-                    showModalForMissedCalls={this.isMCModalVisibleHandler}
+                <div className="SideBar">
+                <MissedCallsSideBar 
+                        missedCalls={this.state.missedCalls}
+                        answered={this.state.answered}
+                        received={this.state.received} 
+                        strelica={strelica}
                 />
+                <Call className="Call" id="callOne" title="Odlazni Poziv" number={this.state.outbound} style={{marginTop: "15px"}}/>
+                </div>
+                
             </div>
         );
     }
