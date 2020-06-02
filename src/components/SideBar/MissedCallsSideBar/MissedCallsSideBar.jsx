@@ -55,8 +55,8 @@ export const MissedCallsSideBar = (props) => {
                             onClick={props.showModalForMissedCalls}>
                                 SEE MISSED CALLS
                         </button> : 
-                        props.missedCalls.map(({start, src}, index) => {
-                            return( <SideBarParagraph text={"+" + src + "      " + moment(start).format('HH:mm MM-DD')} key={index} />)
+                        props.missedCalls.map(({start, src, count}, index) => {
+                            return( <SideBarParagraph text={"+" + src + "      " + moment(start).format('HH:mm') + ' (' + count + ')'} key={index} />)
                         })
                 }
                 
