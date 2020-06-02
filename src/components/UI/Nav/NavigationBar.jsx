@@ -56,7 +56,7 @@ export const NavigationBar = (props) => {
     return (
         <div {...props}>
             <p className="active">WeCare</p>
-            <p className="title">Contact Center Dashboard</p>
+            <p className="title">Korisnička podrška</p>
             <p className="date">{humanDate}.{humanMonth}.{year}.</p>
             <p className="day">{humanDay}</p>
             <p className="time">{hours}:{humanMinutes}</p>

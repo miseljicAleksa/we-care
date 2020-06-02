@@ -7,23 +7,20 @@ export const Title = (props) => {
     let hours = date.getHours();
     let dayPeriod;
     switch (true) {
-        case hours < 11:
-            dayPeriod = "Morning"
+        case hours < 12:
+            dayPeriod = "Jutro"
             break;
-        case hours > 11:
-            dayPeriod = "Day"
-            break;
-        case hours > 19: 
-            dayPeriod = "Evening"
+        case hours >= 12:
+            dayPeriod = "Dan"
             break;
         default:
-            dayPeriod = "Morning"
+            dayPeriod = "Jutro"
             break;
     } 
     return (
         <div {...props}>
-            <p id="header">Welcome And Good {dayPeriod}.</p>
-            <p id="subtitle">Have a great day ahead!</p>
+            <p id="header">Dobro {dayPeriod}. Srećan rad!</p>
+            {/* <p id="subtitle">Srećan rad!</p> */}
         </div>
     )
 }
