@@ -32,22 +32,25 @@ export const NavigationBar = (props) => {
     let humanDay;
     switch (day) {
         case 0:
-            humanDay="Sun"
+            humanDay="Nedelja"
             break;
         case 1:
-            humanDay="Mon"
+            humanDay="Ponedeljak"
+            break;
+        case 2:
+            humanDay="Utorak"
             break;
         case 3:
-            humanDay="Tue"
+            humanDay="Sreda"
             break;
         case 4:
-            humanDay="Wen"
+            humanDay="Četvrtak"
             break;
         case 5:
-            humanDay="Thu"
+            humanDay="Petak"
             break;
         case 6:
-            humanDay="Sat"
+            humanDay="Subota"
             break;
         default:
             break;
@@ -59,7 +62,7 @@ export const NavigationBar = (props) => {
             <p className="title">Korisnička podrška</p>
             <p className="date">{humanDate}.{humanMonth}.{year}.</p>
             <p className="day">{humanDay}</p>
-            <p className="time">{hours}:{humanMinutes}</p>
+            <p className="time">{hours}h</p>
         </div>
     )
 }
