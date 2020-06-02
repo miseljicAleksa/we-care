@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import moment from 'moment'
 import ReactSpeedometer from "react-d3-speedometer"
 import axios from 'axios'
+import FileDownload from 'js-file-download'
 
 import '../SideBar.css'
 import {SideBarParagraph} from '../SideBarParagraph/SideBarParagraph'
@@ -22,16 +23,19 @@ export const MissedCallsSideBar = (props) => {
         return (
         <div {...props}>
             <div className="missedCalls">
-                <div id="kurac">
+                <div id="nekontaktirani">
                 <p className="title">
                     NEKONTAKTIRANI
                 </p>
-                <button onClick={()=>{axios.get(`http://80.240.26.159/cdr/download-missed-calls`)
-            .then(response => {
-                setDugme(response.data)
-                console.log(response.data, "DUGMEEEE calls")
-            })
-            .catch(err => console.log(err))}}>LISTA</button>
+                <button onClick={()=>{
+                    axios.get(`http://80.240.26.159/cdr/download-missed-calls`)
+                    .then(response => {
+                        setDugme(response.data)
+                        FileDownload(response.data, 'nekontaktirani.txt')
+                        console.log(response.data, "DUGMEEEE calls")
+                    })
+                    .catch(err => console.log(err))}
+            }>LISTA</button>
                 </div>
                 
                 <ReactSpeedometer
