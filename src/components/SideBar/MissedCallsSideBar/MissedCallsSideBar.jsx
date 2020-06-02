@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import moment from 'moment'
 import ReactSpeedometer from "react-d3-speedometer"
 import axios from 'axios'
@@ -7,6 +7,15 @@ import '../SideBar.css'
 import {SideBarParagraph} from '../SideBarParagraph/SideBarParagraph'
 import {ServiceLevel} from '../../../components'
 export const MissedCallsSideBar = (props) => { 
+    const [numberOfMissedCalls, setNumberOfMissedCalls] = useState(0);
+
+    useEffect(() => {
+        axios.get(`http://80.240.26.159/cdr/missed-calls`)
+            .then(response => {
+                setNumberOfMissedCalls(response.data.length);
+            })
+            .catch(err => console.log(err))
+    });
 
     const [dugme, setDugme] = useState("")
 
@@ -35,6 +44,10 @@ export const MissedCallsSideBar = (props) => {
                 currentValueText=""
                 needleColor={"#FF0000"}
                 className="speedometer"
+                currentValueText={String(numberOfMissedCalls)}
+                height={180}
+                textColor={"#d8dee9"}
+                valueTextFontSize={"24px"}
                 />                {
                     props.dataCount ?
                         <button
