@@ -193,7 +193,7 @@ class Dashboard extends Component {
                 </div>
                 <div className="midSection">
                     <ServiceLevel className="ServiceLevel" answered={this.state.answered} received={this.state.received} value={midService} color={".black"}/>
-                    <TalkInformations className="TalkInformations" awt={this.state.awt} lwt={this.state.lwt} att={this.state.att} att-inbound={this.state.att_inbound} att-outbound={this.state.att_outbound}/>
+                    <TalkInformations attinbound={this.state.att_inbound} attoutbound={this.state.att_outbound} className="TalkInformations" awt={this.state.awt} lwt={this.state.lwt} att={this.state.att} att-inbound={this.state.att_inbound} att-outbound={this.state.att_outbound}/>
                 </div>
                 <div className="SideBar">
                 <MissedCallsSideBar 

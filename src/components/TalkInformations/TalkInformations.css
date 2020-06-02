@@ -7,12 +7,32 @@
         "averagetalk averagetalk"
         "averagewait longestwait";
 }
-  
+
+#jedan{
+    grid-area: jedan;
+    display: grid;
+    justify-items: center;
+}
+#dva{
+    grid-area: dva;
+    display: grid;
+    justify-items: center;
+}
+#tri{
+    grid-area: tri;
+    display: grid;
+    justify-items: center;
+}
+
 .avaragetalk{
     grid-area: averagetalk;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
     justify-self: stretch;
     align-self: stretch;
-    text-align:  center;
+    grid-template-areas: "jedan jedan" "dva tri";
+    
     background-color: #172434;
     box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
 
