@@ -18,6 +18,13 @@
     font-size: 17px;
   }
 
+  .NavigationBar img {
+    float: left;
+    padding: 14px 14px;
+    width: 100%;
+  }
+
+
 
 .NavigationBar p.date {
     justify-self: left;

@@ -36,6 +36,13 @@
     flex-direction: column;
     justify-content: space-between;
     overflow-y: scroll;
+    width: 100%;
+    text-align: center;
+}
+
+#text{
+    width: 100%;
+    text-align: center;
 }
 
 .sideBarButton {
