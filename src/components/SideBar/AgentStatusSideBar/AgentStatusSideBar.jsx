@@ -15,9 +15,9 @@ export const AgentStatusSideBar = (props) => {
                     props.dataCount ? <button className="sideBarButton" onClick={props.showModalForAgentStatus}>SEE AGENT STATUS</button> : props.agentStatus.map(({fullname, status, status_time}, index) => {
                         return(<SideBarParagraph 
                                         text={fullname + " " + status + " " + status_time} key={index} 
-                                        zelena={status === "Available" ? true : false}
-                                        zuta={status === "Unavailable" ? true : false}
-                                        crvena={status === "Idle" ? true : false}
+                                        zelena={status === "U pozivu" ? true : false}
+                                        siva={status === "Dostupan" ? true : false}
+                                        crvena={status === "Nije dostupan" ? true : false}
                                         />)
                     })
                 }
