@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './NavigationBar.css'
-//import wecare from '../../../wecare.jpeg'
+import wecare from '../../../wecare_logo.png'
 
 export const NavigationBar = (props) => {
     let newDate = new Date()
@@ -55,10 +55,9 @@ export const NavigationBar = (props) => {
         default:
             break;
     }
-    //<img id="slika" src={wecare} alt="njanja"/>
     return (
         <div {...props}>
-            <p className="active">WeCare</p>
+            <img id="logos" src={wecare} alt="njanja"/>
             <p className="title">Korisnička podrška</p>
             <p className="date">{humanDate}.{humanMonth}.{year}.</p>
             <p className="day">{humanDay}</p>
