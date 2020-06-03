@@ -8,7 +8,7 @@ export const ServiceLevel = (props) => {
 
     return (
         <div {...props}>
-            <p id="title">SERVICE LEVEL AGREEMENT</p>
+            <p id="title">NIVO USLUGE</p>
             <ReactSpeedometer
                 needleHeightRatio={0.8}
                 height={150}

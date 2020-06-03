@@ -202,7 +202,7 @@ class Dashboard extends Component {
                         received={this.state.received} 
                         strelica={strelica}
                 />
-                <Call className="Call" id="callOne" title="Odlazni Poziv" number={this.state.outbound} style={{marginTop: "15px"}}/>
+                <Call className="Call" id="callOne" title="Odlazni Pozivi" number={this.state.outbound} style={{marginTop: "15px"}}/>
                 </div>
                 
             </div>

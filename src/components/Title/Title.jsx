@@ -19,7 +19,7 @@ export const Title = (props) => {
     } 
     return (
         <div {...props}>
-            <p id="header">Dobro {dayPeriod}. Srećan rad!</p>
+            <p id="header">Dobar dan i dobro jutro. Srećan rad!</p>
             {/* <p id="subtitle">Srećan rad!</p> */}
         </div>
     )

@@ -59,9 +59,9 @@ export const NavigationBar = (props) => {
         <div {...props}>
             <img id="logos" src={wecare} alt="njanja"/>
             <p className="title">Korisnička podrška</p>
-            <p className="date">{humanDate}.{humanMonth}.{year}.</p>
+            <p className="date">{humanDate}.{humanMonth}.{year}</p>
             <p className="day">{humanDay}</p>
-            <p className="time">{hours}h</p>
+            <p className="time">{hours}:{minutes}</p>
         </div>
     )
 }
