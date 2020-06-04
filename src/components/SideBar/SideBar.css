@@ -10,9 +10,12 @@
     padding-left: 5px;
 }
 
+#nekontaktirani-title {
+    text-align: center;
+    width: auto;
+}
+
 #nekontaktirani{
-    display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 

@@ -24,7 +24,7 @@ export const MissedCallsSideBar = (props) => {
         <div {...props}>
             <div className="missedCalls">
                 <div id="nekontaktirani">
-                <p className="title">
+                <p className="title" id="nekontaktirani-title">
                     NEKONTAKTIRANI
                 </p>
                 <button onClick={()=>{
