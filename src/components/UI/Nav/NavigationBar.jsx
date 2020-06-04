@@ -61,7 +61,7 @@ export const NavigationBar = (props) => {
             <p className="title">Korisnička podrška</p>
             <p className="date">{humanDate}.{humanMonth}.{year}</p>
             <p className="day">{humanDay}</p>
-            <p className="time">{hours}:{minutes}</p>
+            <p className="time">{hours}:{humanMinutes}</p>
         </div>
     )
 }

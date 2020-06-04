@@ -46,7 +46,7 @@ export const MissedCallsSideBar = (props) => {
                 maxValue={100}
                 value={props.strelica}
                 currentValueText=""
-                needleColor={"#FF0000"}
+                needleColor={"#838D94"}
                 className="speedometer"
                 currentValueText={String(numberOfMissedCalls)}
                 height={180}
