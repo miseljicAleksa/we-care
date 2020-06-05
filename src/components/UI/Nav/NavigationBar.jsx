@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './NavigationBar.css'
-import wecare from '../../../wecare_logo.png'
+import wecare from '../../../wecare_logo_croped.png'
 
 export const NavigationBar = (props) => {
     let newDate = new Date()
