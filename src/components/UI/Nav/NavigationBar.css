@@ -57,6 +57,9 @@
         display: flex;
         justify-content: space-between;
     }
+    .NavigationBar img {
+        align-self: center;
+    }
 }
 
 @media only screen and (max-width: 500px){
@@ -69,5 +72,8 @@
     }
     .date{
         margin-left: 10px;
+    }
+    .NavigationBar img {
+        align-self: center;
     }
 }
