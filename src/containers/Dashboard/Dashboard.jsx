@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 
 import './Dashboard.css'
@@ -10,84 +10,100 @@ import {
 import {Call} from '../../components/Calls/Call/Call'
 
 
-class Dashboard extends Component {
-    state={
-        numbercalls: null,
-        isASModalVisible: false,
-        isMCModalVisible: false,
-        isSideBarVisible: true,
-        missedCalls: [],
-        agents: [], 
-        graphic: [],
-        answered: null,
-        received: null,
-        missed: null,
-        queue: null,
-        att: null,
-        att_inbound: null,
-        att_outbound: null,
-        awt: null,
-        lwt: null,
-        outbound: null,
+const  Dashboard = (props) => {
+    const [numbercalls, setNumbercalls] = useState(null)
+    const [isASModalVisible, setIsASModalVisible] = useState(false)
+    const [isMCModalVisible, setIsMCModalVisible] = useState(false)
+    const [isSideBarVisible, setIsSideBarVisible] = useState(true)
+    const [missedCalls, setMissedCalls] = useState([])
+    const [agents, setAgents] = useState([])
+    const [graphic, setGraphic] = useState([])
+    const [answered, setAnswred] = useState([])
+    const [received, setReceived] = useState(null)
+    const [missed, setMissed] = useState(null)
+    const [queue, setQueue] = useState(null)
+    const [att, setAtt] = useState(null)
+    const [att_inbound, setAtt_inbound] = useState(null)
+    const [awt, setAwt] = useState(null)
+    const [lwt, setLwt] = useState(null)
+    const [att_outbound, setAtt_outbound] = useState(null)
+    const [outbound, setOutbound] = useState(null)
+
+    const isASModalVisibleHandler = () => {
+        setIsASModalVisible(true)
     }
 
-    
+    const isMCModalVisibleHandler = () => {
+        setIsMCModalVisible(true)
+    }
 
-    componentDidMount() {
-        // Load async data.
-        // Update state with new data.
-        // Re-render our component.
-        // const baseUrl = 'http://80.240.26.159/'
-        axios.get(`http://80.240.26.159/cdr/missed-calls`)
+    const closeModalHandler = () => {
+        setIsASModalVisible(false)
+    }
+
+    const isSideBarVisibleHandler = () => {
+        setIsSideBarVisible(false)
+    }       
+                 
+      useEffect(() => {
+        loadData()
+        setInterval(loadData, 30000);
+      }, [])
+
+    
+        async function loadData () {
+            try {
+            console.log("NJANJA")
+                axios.get(`http://80.240.26.159/cdr/missed-calls`)
             .then(response => {
-                this.setState({missedCalls: response.data})
+                setMissedCalls(response.data)
                 console.log(response.data, "missed calls")
             })
             .catch(err => console.log(err))
         axios.get(`http://80.240.26.159/cdr/number-of-missed-calls`)
             .then(response => {
-                this.setState({numbercalls: response.data})
+                setNumbercalls(response.data)
             })
             .catch(err => console.log(err))
         
         axios.get(`http://80.240.26.159/cdr/agents`)
             .then(response => {
-                this.setState({agents: response.data})
+                setAgents(response.data)
                 // console.log(response.data)
-                // console.log(this.state.agents)
+                // console.log(agents)
             })
             .catch(err => console.log(err))
 
         axios.get(`http://80.240.26.159/cdr/graphic`)
             .then(response => {
-                this.setState({graphic: response.data})
+                setGraphic(response.data)
             })
             .catch(err => console.log(err))
 
         axios.get(`http://80.240.26.159/cdr/answered`)
             .then(response => {
-                this.setState({answered: response.data})
+                setAnswred(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
         
         axios.get(`http://80.240.26.159/cdr/missed`)
             .then(response => {
-                this.setState({missed: response.data})
+                setMissed(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
         axios.get(`http://80.240.26.159/cdr/received`)
             .then(response => {
-                this.setState({received: response.data})
+                setReceived(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
         axios.get(`http://80.240.26.159/cdr/queue`)
             .then(response => {
-                this.setState({queue: response.data})
+                setQueue(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
@@ -96,9 +112,9 @@ class Dashboard extends Component {
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
-                seconds = seconds.toString().padStart(2, "0")
-                this.setState({awt: `${minutes}:${seconds}`})
-                // console.log(response.data)
+                seconds = parseInt(seconds.toString().padStart(2, "0"))
+                setAwt(`${minutes}:${seconds}`)
+                console.log(response.data)
             })
             .catch(err => console.log(err))
 
@@ -107,7 +123,7 @@ class Dashboard extends Component {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
                 seconds = seconds.toString().padStart(2, "0")
-                this.setState({att: `${minutes}:${seconds}`})
+                setAtt(`${minutes}:${seconds}`)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
@@ -117,14 +133,14 @@ class Dashboard extends Component {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
                 seconds = seconds.toString().padStart(2, "0")
-                this.setState({att_inbound: `${minutes}:${seconds}`})
+                setAtt_inbound(`${minutes}:${seconds}`)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
         
         axios.get(`http://80.240.26.159/cdr/outbound`)
             .then(response => {
-                this.setState({outbound: response.data})
+                setOutbound(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
@@ -134,7 +150,7 @@ class Dashboard extends Component {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
                 seconds = seconds.toString().padStart(2, "0")
-                this.setState({att_outbound: `${minutes}:${seconds}`})
+                setAtt(`${minutes}:${seconds}`)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
@@ -144,43 +160,28 @@ class Dashboard extends Component {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
                 seconds = seconds.toString().padStart(2, "0")
-                this.setState({lwt: `${minutes}:${seconds}`})
+                setLwt(`${minutes}:${seconds}`)
                 // console.log(response.data)
             })
-            .catch(err => console.log(err))           
-      }
-
-    isASModalVisibleHandler = () => {
-        this.setState({isASModalVisible: true})
-    }
-
-    isMCModalVisibleHandler = () => {
-        this.setState({isMCModalVisible: true})
-    }
-
-    closeModalHandler = () => {
-        this.setState({isASModalVisible: false, isMCModalVisible: false})
-    }
-
-    isSideBarVisibleHandler = () => {
-        this.setState({isSideBarVisible: false})
-    }
-
-    render() {
-        var midService = (this.props.answered / this.props.received) * 100
-        var strelica = (this.state.missedCalls.length / this.state.numbercalls) * 100
+            .catch(err => console.log(err)) 
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        var midService = (props.answered / props.received) * 100
+        var strelica = (missedCalls.length / numbercalls) * 100
         return (
             <div className="Dashboard">
-                <Modal show={this.state.isASModalVisible || this.state.isMCModalVisible} modalClosed={this.closeModalHandler}>
+                <Modal show={isASModalVisible || isMCModalVisible} modalClosed={closeModalHandler}>
                     
-                    {this.state.isASModalVisible ? <AgentStatusSideBar 
+                    {isASModalVisible ? <AgentStatusSideBar 
                         className="SideBar" 
-                        agentStatus={this.state.agents} 
+                        agentStatus={agents} 
                         style={{overflowY: "scroll", height:"500px"}}
                         /> : null}
-                    {this.state.isMCModalVisible ? (<MissedCallsSideBar 
+                    {isMCModalVisible ? (<MissedCallsSideBar 
                         className="SideBar" 
-                        missedCalls={this.state.missedCalls} 
+                        missedCalls={missedCalls} 
                         style={{overflowY: "scroll", height:"500px"}}
                         />) : null}
 
@@ -188,28 +189,25 @@ class Dashboard extends Component {
                 <NavigationBar className="NavigationBar"/>
                 <div className="leftSection">
                     <Title className="Title"/>
-                    <Calls className="Calls" missed={this.state.missed} queue={this.state.queue} answered={this.state.answered} received={this.state.received}/>
-                    <AgentStatusSideBar agentStatus={this.state.agents}/>
+                    <Calls className="Calls" missed={missed} queue={queue} answered={answered} received={received}/>
+                    <AgentStatusSideBar agentStatus={agents}/>
                 </div>
                 <div className="midSection">
-                    <ServiceLevel className="ServiceLevel" answered={this.state.answered} received={this.state.received} value={midService} color={".black"}/>
-                    <TalkInformations attinbound={this.state.att_inbound} attoutbound={this.state.att_outbound} className="TalkInformations" awt={this.state.awt} lwt={this.state.lwt} att={this.state.att} att-inbound={this.state.att_inbound} att-outbound={this.state.att_outbound}/>
+                    <ServiceLevel className="ServiceLevel" answered={answered} received={received} value={midService} color={".black"}/>
+                    <TalkInformations attinbound={att_inbound} attoutbound={att_outbound} className="TalkInformations" awt={awt} lwt={lwt} att={att} att-inbound={att_inbound} att-outbound={att_outbound}/>
                 </div>
                 <div className="SideBar">
                 <MissedCallsSideBar 
-                        missedCalls={this.state.missedCalls}
-                        answered={this.state.answered}
-                        received={this.state.received} 
+                        missedCalls={missedCalls}
+                        answered={answered}
+                        received={received} 
                         strelica={strelica}
                 />
-                <Call className="Call" id="callOne" title="Odlazni pozivi" number={this.state.outbound} style={{marginTop: "15px"}}/>
+                <Call className="Call" id="callOne" title="Odlazni pozivi" number={outbound} style={{marginTop: "15px"}}/>
                 </div>
                 
             </div>
         );
     }
-
-
-}
 
 export default Dashboard;

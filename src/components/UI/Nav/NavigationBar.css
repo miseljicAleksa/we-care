@@ -32,6 +32,10 @@
     align-self: left;
 }
 
+#logos{
+    grid-area: logo;
+}
+
 .active {
     grid-area: weCare;
 }
@@ -69,7 +73,7 @@
     .NavigationBar {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-areas: "weCare title title title" "date . day time";
+        grid-template-areas: "logo logo logo logo" "title title title title" "date . day time";
         gap: 5px;
         justify-items: center;
     }

@@ -28,11 +28,11 @@ export const ServiceLevel = (props) => {
                 <div className="yellow">
 
                 </div>
-                <p className="string">> 40 & &#60;=70</p>
+                <p className="string">{'>'} 40 & &#60;=70</p>
                 <div className="green">
 
                 </div>
-                <p className="stringTwo">> 71 & &#60;= 100</p>
+                <p className="stringTwo">{'>'} 71 & &#60;= 100</p>
             </div>
             
 
