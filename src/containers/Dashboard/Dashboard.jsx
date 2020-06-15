@@ -112,7 +112,7 @@ const  Dashboard = (props) => {
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
-                seconds = parseInt(seconds.toString().padStart(2, "0"))
+                seconds = seconds.toString().padStart(2, "0")
                 setAwt(`${minutes}:${seconds}`)
                 console.log(response.data)
             })
@@ -150,7 +150,7 @@ const  Dashboard = (props) => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
                 seconds = seconds.toString().padStart(2, "0")
-                setAtt(`${minutes}:${seconds}`)
+                setAtt_outbound(`${minutes}:${seconds}`)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
