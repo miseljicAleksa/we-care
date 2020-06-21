@@ -77,3 +77,15 @@
 	position:relative;
 	top:1px;
 }
+
+.nekontaktirani-wrapper {
+    pointer-events: none;
+}
+
+.nekontaktirani-wrapper .current-value {
+    pointer-events: initial;
+}
+
+.nekontaktirani-wrapper .current-value:hover {
+    cursor: pointer;
+}
