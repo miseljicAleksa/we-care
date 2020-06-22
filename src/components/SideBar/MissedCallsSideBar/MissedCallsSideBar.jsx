@@ -51,7 +51,17 @@ export const MissedCallsSideBar = (props) => {
                         height={180}
                         textColor={"#d8dee9"}
                         valueTextFontSize={"24px"}
-                    />
+                    />                {
+                        props.dataCount ?
+                            <button
+                                className="sideBarButton"
+                                onClick={props.showModalForMissedCalls}>
+                                    SEE MISSED CALLS
+                            </button> : 
+                            props.missedCalls.map(({start, src, count}, index) => {
+                                return( <SideBarParagraph text={"+" + src + "      " + moment(start).format('HH:mm') + ' (' + count + ')'} key={index} />)
+                            })
+                    }
                 </div>
             </div>
         </div>
