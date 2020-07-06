@@ -1,7 +1,7 @@
 {
   "homepage": "http://miseljicAleksa.github.io/we-care",
   "name": "we_care",
-  "proxy": "http://80.240.26.159",
+  "proxy": "http://192.168.32.53/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

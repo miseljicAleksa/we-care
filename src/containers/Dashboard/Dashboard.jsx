@@ -47,26 +47,25 @@ const  Dashboard = (props) => {
                  
       useEffect(() => {
         loadData()
-        setInterval(loadData, 15000);
       }, [])
 
     
         async function loadData () {
             try {
             console.log("NJANJA")
-                axios.get(`http://80.240.26.159/cdr/missed-calls`)
+                axios.get(`http://192.168.32.53/cdr/missed-calls`)
             .then(response => {
                 setMissedCalls(response.data)
                 console.log(response.data, "missed calls")
             })
             .catch(err => console.log(err))
-        axios.get(`http://80.240.26.159/cdr/number-of-missed-calls`)
+        axios.get(`http://192.168.32.53/cdr/number-of-missed-calls`)
             .then(response => {
                 setNumbercalls(response.data)
             })
             .catch(err => console.log(err))
         
-        axios.get(`http://80.240.26.159/cdr/agents`)
+        axios.get(`http://192.168.32.53/cdr/agents`)
             .then(response => {
                 setAgents(response.data)
                 // console.log(response.data)
@@ -74,41 +73,41 @@ const  Dashboard = (props) => {
             })
             .catch(err => console.log(err))
 
-        axios.get(`http://80.240.26.159/cdr/graphic`)
+        axios.get(`http://192.168.32.53/cdr/graphic`)
             .then(response => {
                 setGraphic(response.data)
             })
             .catch(err => console.log(err))
 
-        axios.get(`http://80.240.26.159/cdr/answered`)
+        axios.get(`http://192.168.32.53/cdr/answered`)
             .then(response => {
                 setAnswred(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
         
-        axios.get(`http://80.240.26.159/cdr/missed`)
+        axios.get(`http://192.168.32.53/cdr/missed`)
             .then(response => {
                 setMissed(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
-        axios.get(`http://80.240.26.159/cdr/received`)
+        axios.get(`http://192.168.32.53/cdr/received`)
             .then(response => {
                 setReceived(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
-        axios.get(`http://80.240.26.159/cdr/queue`)
+        axios.get(`http://192.168.32.53/cdr/queue`)
             .then(response => {
                 setQueue(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
-        axios.get(`http://80.240.26.159/cdr/awt`)
+        axios.get(`http://192.168.32.53/cdr/awt`)
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
@@ -118,7 +117,7 @@ const  Dashboard = (props) => {
             })
             .catch(err => console.log(err))
 
-        axios.get(`http://80.240.26.159/cdr/att`)
+        axios.get(`http://192.168.32.53/cdr/att`)
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
@@ -128,7 +127,7 @@ const  Dashboard = (props) => {
             })
             .catch(err => console.log(err))
 
-        axios.get(`http://80.240.26.159/cdr/att-inbound`)
+        axios.get(`http://192.168.32.53/cdr/att-inbound`)
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
@@ -138,14 +137,14 @@ const  Dashboard = (props) => {
             })
             .catch(err => console.log(err))
         
-        axios.get(`http://80.240.26.159/cdr/outbound`)
+        axios.get(`http://192.168.32.53/cdr/outbound`)
             .then(response => {
                 setOutbound(response.data)
                 // console.log(response.data)
             })
             .catch(err => console.log(err))
 
-        axios.get(`http://80.240.26.159/cdr/att-outbound`)
+        axios.get(`http://192.168.32.53/cdr/att-outbound`)
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60
@@ -155,7 +154,7 @@ const  Dashboard = (props) => {
             })
             .catch(err => console.log(err))
 
-        axios.get(`http://80.240.26.159/cdr/lwt`)
+        axios.get(`http://192.168.32.53/cdr/lwt`)
             .then(response => {
                 var minutes = Math.floor(response.data / 60)
                 var seconds = response.data - minutes * 60

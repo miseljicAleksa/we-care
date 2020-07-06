@@ -11,7 +11,7 @@ export const MissedCallsSideBar = (props) => {
     const [numberOfMissedCalls, setNumberOfMissedCalls] = useState(0);
 
     useEffect(() => {
-        axios.get(`http://80.240.26.159/cdr/missed-calls`)
+        axios.get(`http://192.168.32.53/cdr/missed-calls`)
             .then(response => {
                 setNumberOfMissedCalls(response.data.length);
             })
@@ -20,7 +20,7 @@ export const MissedCallsSideBar = (props) => {
 
     const [dugme, setDugme] = useState("")
         const handleClick = () => {
-            axios.get(`http://80.240.26.159/cdr/download-missed-calls`)
+            axios.get(`http://192.168.32.53/cdr/download-missed-calls`)
             .then(response => {
                 FileDownload(response.data, 'nekontaktirani.txt')
             })
