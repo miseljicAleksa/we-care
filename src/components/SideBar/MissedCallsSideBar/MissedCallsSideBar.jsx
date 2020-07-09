@@ -10,14 +10,6 @@ import {ServiceLevel} from '../../../components'
 export const MissedCallsSideBar = (props) => { 
     const [numberOfMissedCalls, setNumberOfMissedCalls] = useState(0);
 
-    useEffect(() => {
-        axios.get(`http://192.168.32.53/cdr/missed-calls`)
-            .then(response => {
-                setNumberOfMissedCalls(response.data.length);
-            })
-            .catch(err => console.log(err))
-    });
-
     const [dugme, setDugme] = useState("")
         const handleClick = () => {
             axios.get(`http://192.168.32.53/cdr/download-missed-calls`)
@@ -47,7 +39,7 @@ export const MissedCallsSideBar = (props) => {
                         startColor={"#33CC33"}
                         endColor={"#FF471A"}
                         className="speedometer"
-                        currentValueText={String(numberOfMissedCalls)}
+                        currentValueText={String(props.number_of_nekontaktirani)}
                         height={180}
                         textColor={"#d8dee9"}
                         valueTextFontSize={"24px"}
