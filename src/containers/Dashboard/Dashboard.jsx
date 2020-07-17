@@ -47,7 +47,7 @@ const  Dashboard = (props) => {
                  
       useEffect(() => {
         loadData()
-        setInterval(loadData, 30000);
+        setInterval(loadData, 5 * 1000);
       }, [])
 
     
