@@ -1,5 +1,4 @@
 export {Calls} from './Calls/Calls'
-export {CallGraph} from './CallGraph/CallGraph'
 export {ServiceLevel} from './ServiceLevel/ServiceLevel'
 export {SideBar} from './SideBar/SideBar'
 export {TalkInformations} from './TalkInformations/TalkInformations'

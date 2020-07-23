@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import './Dashboard.css'
 import {
-    CallGraph, Calls, ServiceLevel,
+    Calls, ServiceLevel,
     SideBar, TalkInformations, Title,
     NavigationBar, Spinner, Modal,
     Backdrop, MissedCallsSideBar, AgentStatusSideBar } from '../../components'
@@ -74,14 +74,7 @@ const  Dashboard = (props) => {
                 })
                 .catch(err => console.log(err))
 
-            
-                axios.get(`http://192.168.32.53/cdr/graphic`)
-                .then(response => {
-                    setGraphic(response.data)
-                })
-                .catch(err => console.log(err))
-
-            
+                
                 axios.get(`http://192.168.32.53/cdr/answered`)
                 .then(response => {
                     setAnswred(response.data)
