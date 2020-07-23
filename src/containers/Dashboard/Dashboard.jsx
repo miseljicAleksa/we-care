@@ -53,6 +53,8 @@ const  Dashboard = (props) => {
     
         async function loadData () {
             try {
+                let received = 0
+
                 axios.get(`http://192.168.32.53/cdr/missed-calls`)
                 .then(response => {
                     setMissedCalls(response.data)
@@ -78,6 +80,8 @@ const  Dashboard = (props) => {
                 axios.get(`http://192.168.32.53/cdr/answered`)
                 .then(response => {
                     setAnswred(response.data)
+                    received = received + response.data
+                    setReceived(received)
                     // console.log(response.data)
                 })
                 .catch(err => console.log(err))
@@ -86,19 +90,13 @@ const  Dashboard = (props) => {
                 axios.get(`http://192.168.32.53/cdr/missed`)
                 .then(response => {
                     setMissed(response.data)
+                    received = received + response.data
+                    setReceived(received)
                     // console.log(response.data)
                 })
                 .catch(err => console.log(err))
 
-            
-                axios.get(`http://192.168.32.53/cdr/received`)
-                .then(response => {
-                    setReceived(response.data)
-                    // console.log(response.data)
-                })
-                .catch(err => console.log(err))
-
-            
+                
                 axios.get(`http://192.168.32.53/cdr/queue`)
                 .then(response => {
                     setQueue(response.data)
@@ -113,7 +111,7 @@ const  Dashboard = (props) => {
                     var seconds = response.data - minutes * 60
                     seconds = seconds.toString().padStart(2, "0")
                     setAwt(`${minutes}:${seconds}`)
-                    console.log(response.data)
+                    // console.log(response.data)
                 })
                 .catch(err => console.log(err))
 
