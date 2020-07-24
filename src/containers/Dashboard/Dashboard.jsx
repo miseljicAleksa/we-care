@@ -4,9 +4,9 @@ import axios from 'axios'
 import './Dashboard.css'
 import {
     Calls, ServiceLevel,
-    SideBar, TalkInformations, Title,
-    NavigationBar, Spinner, Modal,
-    Backdrop, MissedCallsSideBar, AgentStatusSideBar } from '../../components'
+    TalkInformations, Title,
+    NavigationBar, Modal,
+    MissedCallsSideBar, AgentStatusSideBar } from '../../components'
 import {Call} from '../../components/Calls/Call/Call'
 
 
@@ -14,10 +14,8 @@ const  Dashboard = (props) => {
     const [numbercalls, setNumbercalls] = useState(null)
     const [isASModalVisible, setIsASModalVisible] = useState(false)
     const [isMCModalVisible, setIsMCModalVisible] = useState(false)
-    const [isSideBarVisible, setIsSideBarVisible] = useState(true)
     const [missedCalls, setMissedCalls] = useState([])
     const [agents, setAgents] = useState([])
-    const [graphic, setGraphic] = useState([])
     const [answered, setAnswred] = useState([])
     const [received, setReceived] = useState(null)
     const [missed, setMissed] = useState(null)
@@ -29,21 +27,9 @@ const  Dashboard = (props) => {
     const [att_outbound, setAtt_outbound] = useState(null)
     const [outbound, setOutbound] = useState(null)
 
-    const isASModalVisibleHandler = () => {
-        setIsASModalVisible(true)
-    }
-
-    const isMCModalVisibleHandler = () => {
-        setIsMCModalVisible(true)
-    }
-
     const closeModalHandler = () => {
         setIsASModalVisible(false)
     }
-
-    const isSideBarVisibleHandler = () => {
-        setIsSideBarVisible(false)
-    }       
                  
       useEffect(() => {
         loadData()
@@ -81,20 +67,19 @@ const  Dashboard = (props) => {
                 .then(response => {
                     setAnswred(response.data)
                     received = received + response.data
-                    setReceived(received)
-                    // console.log(response.data)
+
+                    axios.get(`http://192.168.32.53/cdr/missed`)
+                    .then(response => {
+                        setMissed(response.data)
+                        received = received + response.data
+                        setReceived(received)
+                        // console.log(response.data)
+                    })
+                    .catch(err => console.log(err))
                 })
                 .catch(err => console.log(err))
             
             
-                axios.get(`http://192.168.32.53/cdr/missed`)
-                .then(response => {
-                    setMissed(response.data)
-                    received = received + response.data
-                    setReceived(received)
-                    // console.log(response.data)
-                })
-                .catch(err => console.log(err))
 
                 
                 axios.get(`http://192.168.32.53/cdr/queue`)
