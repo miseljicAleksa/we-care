@@ -1,11 +1,11 @@
 .SideBar {
-    
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.title{
+.title {
     color: #838D94;
     padding-left: 5px;
 }
@@ -15,11 +15,11 @@
     width: auto;
 }
 
-#nekontaktirani{
+#nekontaktirani {
     justify-content: space-between;
 }
 
-.agentStatus{
+.agentStatus {
     margin-top: 8px;
     padding: 15px;
     display: flex;
@@ -29,9 +29,9 @@
     background-color: #172434;
 }
 
-.missedCalls{
+.missedCalls {
     background-color: #172434;
-    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
+    box-shadow: 4px 4px 9px -1px rgba(0, 0, 0, 0.55);
     display: flex;
     height: 620px;
     /* margin-bottom: 15px; */
@@ -43,39 +43,41 @@
     text-align: center;
 }
 
-#text{
+#text {
     width: 100%;
     text-align: center;
 }
 
 .sideBarButton {
-	box-shadow: 3px 4px 0px 0px #1564ad;
-	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-	background-color:#79bbff;
-	border-radius:5px;
-	border:1px solid #337bc4;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:1rem;
-	font-weight:bold;
-	text-decoration:none;
-    text-shadow:0px 1px 0px #528ecc;
-    
+    box-shadow: 3px 4px 0px 0px #1564ad;
+    background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+    background-color: #79bbff;
+    border-radius: 5px;
+    border: 1px solid #337bc4;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #528ecc;
+
     width: 70%;
     height: 3rem;
     align-self: center;
     margin-top: 30%;
     margin-bottom: 2em;
 }
+
 .sideBarButton:hover {
-	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
-	background-color:#378de5;
+    background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+    background-color: #378de5;
 }
+
 .sideBarButton:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
 
 .nekontaktirani-wrapper {

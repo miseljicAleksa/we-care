@@ -4,27 +4,27 @@
     background-color: #172434;
 
     display: grid;
-    gap:20px;
+    gap: 20px;
     grid-template-columns: repeat(9, 1fr);
     grid-template-areas: 'logo title title title . . date day time';
-    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
+    box-shadow: 4px 4px 9px -1px rgba(0, 0, 0, 0.55);
 }
-  .NavigationBar p {
+
+.NavigationBar p {
     float: left;
     color: #838D94;
     text-align: center;
     padding: 14px 0px;
     text-decoration: none;
     font-size: 17px;
-  }
+}
 
-  .NavigationBar img {
+.NavigationBar img {
     float: left;
     padding: 14px 14px;
     width: 100%;
     align-self: center;
-  }
-
+}
 
 
 .NavigationBar p.date {
@@ -32,7 +32,7 @@
     align-self: left;
 }
 
-#logos{
+#logos {
     grid-area: logo;
 }
 
@@ -40,27 +40,28 @@
     grid-area: weCare;
 }
 
-.title{
+.title {
     grid-area: title;
 }
 
-.date{
+.date {
     grid-area: date;
 }
 
-.day{
+.day {
     grid-area: day;
 }
 
-.time{
+.time {
     grid-area: time;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
     .NavigationBar {
         display: flex;
         justify-content: space-between;
     }
+
     .NavigationBar img {
         float: left;
         padding: 14px 14px;
@@ -69,7 +70,7 @@
     }
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 500px) {
     .NavigationBar {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -77,9 +78,11 @@
         gap: 5px;
         justify-items: center;
     }
-    .date{
+
+    .date {
         margin-left: 10px;
     }
+
     .NavigationBar img {
         float: left;
         padding: 14px 14px;

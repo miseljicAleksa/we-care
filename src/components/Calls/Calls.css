@@ -5,22 +5,23 @@
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
     gap: 7px;
-    
+
     overflow: hidden;
 }
 
-#callOne{
-    color:#C1C4D4;
-}
-#callTwo{
-    color:#C1C4D4;
+#callOne {
+    color: #C1C4D4;
 }
 
-#callThree{
-    color:rgb(223, 165, 41);
+#callTwo {
+    color: #C1C4D4;
 }
 
-#callFour{
-    color:rgb(228, 61, 61);
+#callThree {
+    color: rgb(223, 165, 41);
+}
+
+#callFour {
+    color: rgb(228, 61, 61);
 }
 

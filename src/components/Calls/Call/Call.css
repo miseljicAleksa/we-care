@@ -1,18 +1,18 @@
-.Call{
+.Call {
     background-color: #172434;
-    display: flex;  
+    display: flex;
     align-items: center;
     flex-direction: column;
-    box-shadow: 4px 4px 9px -1px rgba(0,0,0,0.55);
+    box-shadow: 4px 4px 9px -1px rgba(0, 0, 0, 0.55);
 }
 
-.title{
+.title {
     color: #858EA0;
     margin-bottom: 0px;
     font-size: 12px;
 }
 
-.countUp{
+.countUp {
     margin-top: 0px;
     margin-bottom: 2px;
     font-size: 3rem;
