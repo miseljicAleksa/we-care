@@ -5,7 +5,6 @@ import './ServiceLevel.css'
 
 export const ServiceLevel = (props) => {
   const textColor = "#AAA"
-
   return (
     <div {...props}>
       <p id="title">NIVO USLUGE</p>
@@ -34,8 +33,6 @@ export const ServiceLevel = (props) => {
         </div>
         <p className="stringTwo">{'>'} 71 & &#60;= 100</p>
       </div>
-
-
     </div>
   )
 }

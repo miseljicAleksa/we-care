@@ -1,16 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 import moment from 'moment'
 import ReactSpeedometer from "react-d3-speedometer"
 import axios from 'axios'
 import FileDownload from 'js-file-download'
-
 import '../SideBar.css'
 import {SideBarParagraph} from '../SideBarParagraph/SideBarParagraph'
 
 export const MissedCallsSideBar = (props) => {
-  const [numberOfMissedCalls, setNumberOfMissedCalls] = useState(0);
-
-  const [dugme, setDugme] = useState("")
   const handleClick = () => {
     axios.get(`http://192.168.32.53/cdr/download-missed-calls`)
       .then(response => {
@@ -18,7 +14,6 @@ export const MissedCallsSideBar = (props) => {
       })
       .catch(err => console.log(err))
   }
-
 
   return (
     <div {...props}>
@@ -31,7 +26,6 @@ export const MissedCallsSideBar = (props) => {
         <div className='nekontaktirani-wrapper' onClick={handleClick}>
           <ReactSpeedometer
             needleHeightRatio={0.8}
-            height={150}
             maxSegmentLabels={0}
             segments={9000}
             maxValue={100}
@@ -40,7 +34,7 @@ export const MissedCallsSideBar = (props) => {
             startColor={"#33CC33"}
             endColor={"#FF471A"}
             className="speedometer"
-            currentValueText={String(props.number_of_nekontaktirani)}
+            currentValueText={String(props.numberOfNekontaktirani)}
             height={180}
             textColor={"#d8dee9"}
             valueTextFontSize={"24px"}
@@ -51,10 +45,10 @@ export const MissedCallsSideBar = (props) => {
               onClick={props.showModalForMissedCalls}>
               SEE MISSED CALLS
             </button> :
-            props.missedCalls.map(({start, src, count}, index) => {
-              return (<SideBarParagraph text={"+" + src + "      " + moment(start).format('HH:mm') + ' (' + count + ')'}
-                                        key={index}/>)
-            })
+            props.missedCalls.map(({start, src, count}, index) =>
+                <SideBarParagraph text={`+${src}      ${moment(start).format('HH:mm')} (${count})`}
+                                 key={index}/>
+            )
         }
         </div>
       </div>

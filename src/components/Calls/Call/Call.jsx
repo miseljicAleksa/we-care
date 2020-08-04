@@ -21,9 +21,9 @@ export const Call = (props) => {
 
 export const CallDownloadPrimljeni = (props) => {
   const handleClick = () => {
-    axios.get(`http://192.168.32.53/cdr/download-received-calls`)
+    axios.get(`http://192.168.32.53/cdr/download-received-calls`) // todo to conf
       .then(response => {
-        FileDownload(response.data, 'primljeni.txt')
+        FileDownload(response.data, 'primljeni.txt') // todo to conf
       })
       .catch(err => console.log(err))
   }
