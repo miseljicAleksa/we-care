@@ -8,7 +8,7 @@ export const ServiceLevel = (props) => {
 
     return (
         <div {...props}>
-            <p id="title">NIVO USLUGE</p>
+            <p id="title">NIVO USLUGE<br></br>{Math.round((props.answered / props.received) * 100)}%</p>
             <ReactSpeedometer
                 needleHeightRatio={0.8}
                 height={150}
